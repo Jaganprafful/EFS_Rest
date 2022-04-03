@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from rest_framework_jwt.serializers import User
 
-from .models import Customer, Investment, Stock
+from .models import Customer, Investment, Stock, MutualFund
 from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
@@ -25,6 +25,12 @@ class StockSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stock
         fields = ('pk', 'customer', 'cust_number', 'symbol', 'name', 'shares', 'purchase_price', 'purchase_date')
+
+
+class MutualFundSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MutualFund
+        fields = ('pk', 'customer', 'cust_number', 'plan', 'investment_amount', 'current_value', 'acquired_date')
 
 
 class RegisterSerializer(serializers.ModelSerializer):

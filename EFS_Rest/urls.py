@@ -33,6 +33,9 @@ urlpatterns = [
     path('stocks/', views.stock_list),
     url(r'^api/stocks/$', views.stock_list),
     url(r'^api/stocks/(?P<pk>[0-9]+)$', views.getStock),
+    path('mutualfunds/', views.mutualfund_list),
+    url(r'^api/mutualfunds/$', views.mutualfund_list),
+    url(r'^api/mutualfunds/(?P<pk>[0-9]+)$', views.getMutualFund),
     path('register/', views.RegisterView.as_view(), name='auth_register'),
 ]
 
